@@ -2,7 +2,7 @@ import { pool } from "../src/db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// REGISTER
+// REGISTER = pending
 export const register = async (req, res) => {
   try {
     const { nip, nama, password } = req.body;
@@ -13,6 +13,7 @@ export const register = async (req, res) => {
       });
     }
 
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await pool.query(
